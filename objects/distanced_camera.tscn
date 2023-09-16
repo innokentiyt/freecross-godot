@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3d8l8e2da1dq"]
+
+[ext_resource type="Environment" uid="uid://ba7ksge8gu22t" path="res://objects/environment.tres" id="1_kmqgt"]
+[ext_resource type="Script" path="res://objects/distanced_camera.gd" id="1_xgro8"]
+
+[node name="distanced_camera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.07846)
+environment = ExtResource("1_kmqgt")
+script = ExtResource("1_xgro8")
