@@ -1,15 +1,17 @@
 extends Label
 
-var visibility_seconds := 3.0
-var fade_out_seconds := 2.0
+var visibility_seconds := 4.0
+var fade_out_seconds := 1.5
 var remove_after_seconds := visibility_seconds + fade_out_seconds
 var timer := 0.0
 
-var originalColor: Color
+@onready var original_color := self.modulate
+@onready var original_alpha := original_color.a
+@onready var alpha_loss_speed := original_alpha / fade_out_seconds
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	originalColor = self.modulate
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,7 +21,7 @@ func _process(delta):
 		pass
 	else:
 		if timer < remove_after_seconds:
-			var alpha = self.modulate.a - fade_out_seconds * delta
-			self.modulate = Color(originalColor, alpha)
+			var new_alpha = self.modulate.a - alpha_loss_speed * delta
+			self.modulate = Color(original_color, new_alpha)
 		else:
 			self.queue_free()

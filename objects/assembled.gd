@@ -9,7 +9,7 @@ class_name Assembled
 		var shape_dict = load_shape_json(shape_name)
 		assemble(shape_dict)
 
-var empty_blocks_count = 0
+var empty_blocks_count := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
