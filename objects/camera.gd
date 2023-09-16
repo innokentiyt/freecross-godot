@@ -1,23 +1,25 @@
 extends Node3D
 
+const HALF_PI = PI/2
+
 var mouse_h_sensitivity := 0.0015
 var mouse_v_sensitivity := 0.002
 var horizontal_input := 0.0
 var vertical_input := 0.0
 
-var h: Node3D
-var v: Node3D
+@onready var h := self
+@onready var v := get_node("camera_vertical_pivot") as Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	h = self
-	v = get_node("camera_vertical_pivot") as Node3D
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	h.rotate_y(horizontal_input)
 	v.rotate_x(vertical_input)
+	v.rotation.x = clamp(v.rotation.x, -HALF_PI, HALF_PI)
 	horizontal_input = 0.0
 	vertical_input = 0.0
 
