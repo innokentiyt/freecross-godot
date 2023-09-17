@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwbs6g6lhpo8"]
-
-[ext_resource type="Script" path="res://objects/block.gd" id="1_s70ph"]
-[ext_resource type="Material" uid="uid://c56mv8pgx2dee" path="res://materials/transparent_white.tres" id="1_x8akl"]
-
-[node name="block" type="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1.00002, 0, 0, 0, 1.00002, 0, 0, 0)
-material = ExtResource("1_x8akl")
-script = ExtResource("1_s70ph")

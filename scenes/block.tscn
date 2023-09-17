@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwbs6g6lhpo8"]
+
+[ext_resource type="Material" uid="uid://c56mv8pgx2dee" path="res://materials/transparent_white.tres" id="1_x8akl"]
+[ext_resource type="Script" path="res://scenes/block.gd" id="2_rrg42"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7yhjj"]
+
+[node name="block" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1.00002, 0, 0, 0, 1.00002, 0, 0, 0)
+material = ExtResource("1_x8akl")
+script = ExtResource("2_rrg42")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_7yhjj")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
