@@ -1,9 +1,8 @@
 @tool
+class_name DistancedCamera
 extends Camera3D
 
-class_name DistancedCamera
-
-@export var observing_shape_size: Vector3 = Vector3(1, 1, 1):
+@export var observing_shape_size: Vector3i = Vector3i(1, 1, 1):
 	set(new):
 		print("setting new observing_shape_size: " + str(new))
 		observing_shape_size = new
@@ -30,5 +29,5 @@ func get_distance(shape_size: Vector3) -> float:
 	return diagonal_length * distance_multiplier
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

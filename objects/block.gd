@@ -1,7 +1,6 @@
 @tool
-extends CSGBox3D
-
 class_name Block
+extends CSGBox3D
 
 const materials = {
 	"TW": preload("res://materials/transparent_white.tres"),
