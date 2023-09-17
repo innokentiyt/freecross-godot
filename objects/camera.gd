@@ -1,9 +1,9 @@
 extends Node3D
 
-const HALF_PI = PI/2
+const HALF_PI := PI/2
+const mouse_h_sensitivity := 0.0035
+const mouse_v_sensitivity := 0.004
 
-var mouse_h_sensitivity := 0.0015
-var mouse_v_sensitivity := 0.002
 var horizontal_input := 0.0
 var vertical_input := 0.0
 
@@ -12,11 +12,11 @@ var vertical_input := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	h.rotate_y(horizontal_input)
 	v.rotate_x(vertical_input)
 	v.rotation.x = clamp(v.rotation.x, -HALF_PI, HALF_PI)

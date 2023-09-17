@@ -18,7 +18,7 @@ script = ExtResource("3_kkewa")
 
 [node name="distanced_camera" parent="camera_horizontal_pivot/camera_vertical_pivot" instance=ExtResource("4_e3nbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.23538)
-observing_shape_size = Vector3(3, 3, 3)
+observing_shape_size = Vector3i(3, 3, 3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.534826, 0.733042, -0.420251, -0.25, 0.612372, 0.75, 0.807131, -0.296057, 0.510773, 5, 4, 0)

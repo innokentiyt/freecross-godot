@@ -10,24 +10,9 @@ const shapes_order: Array[String] = ["simple_pyramid"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assembled.shape_name = current_shape_name
-	var current_shape_dict = load_shape_json(current_shape_name)
-	camera.observing_shape_size = Vector3(
-		current_shape_dict["x"],
-		current_shape_dict["y"],
-		current_shape_dict["z"]
-	)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-
-func load_shape_json(file_name: String) -> Dictionary:
-	var path = "res://shapes/" + file_name + ".json"
-	print("path: " + path)
-	var file = FileAccess.open(path, FileAccess.READ)
-	var text_content = file.get_as_text()
-	var dict = JSON.parse_string(text_content)
-	return dict
+	camera.observing_shape_size = assembled.shape.size
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
