@@ -11,7 +11,7 @@ const shapes_order: Array[String] = ["simple_pyramid"]
 func _ready():
 	print("MainScene ready")
 	assembled.shape_name = current_shape_name
-	camera.observing_shape_size = assembled.shape.size
+	camera.set_attributes(assembled.shape.size)
 	# print_tree_pretty()
 
 
