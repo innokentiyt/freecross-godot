@@ -10,7 +10,6 @@ const materials = {
 @export var filled: bool = false:
 	set(new):
 		filled = new
-		print("new filled: " + str(new))
 		if new:
 			material = materials["DG"]
 		else:
@@ -19,32 +18,45 @@ const materials = {
 @export var x: float = 0:
 	set(new):
 		x = new
-		print("new x: " + str(new))
 		position.x = new
+
 @export var y: float = 0:
 	set(new):
 		y = new
-		print("new y: " + str(new))
 		position.y = new
+
 @export var z: float = 0:
 	set(new):
 		z = new
-		print("new z: " + str(new))
 		position.z = new
+
+var sums: Vector3i
+
+
+# class constructor
+func set_attributes(xyz: Vector3, set_filled: bool, set_sums: Vector3i):
+	rotation = Vector3.ZERO
+	x = xyz.x
+	y = xyz.y
+	z = xyz.z
+	sums = set_sums
+	filled = set_filled
+	
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rotation = Vector3.ZERO
-	position.x = self.x
-	position.y = self.y
-	position.z = self.z
-	if filled:
-		material = materials["DG"]
-	else:
-		material = materials["TW"]
-		
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventMouseButton:
+		if Input.is_action_pressed("left_mouse_button"):
+			if not filled:
+				get_parent().empty_blocks_count -= 1
+				self.queue_free()

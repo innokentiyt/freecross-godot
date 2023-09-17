@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4i4jaa17iqnv"]
+
+[ext_resource type="Script" path="res://scenes/camera.gd" id="1_3fyoi"]
+[ext_resource type="Environment" uid="uid://ba7ksge8gu22t" path="res://materials/environment.tres" id="2_7ns57"]
+
+[node name="camera_horizontal_pivot" type="Node3D"]
+script = ExtResource("1_3fyoi")
+
+[node name="camera_vertical_pivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="camera_vertical_pivot"]
+environment = ExtResource("2_7ns57")
