@@ -13,7 +13,7 @@ const materials = {
 		if new:
 			material = materials["DG"]
 		else:
-			material = materials["TW"]
+			material = materials["DG"]
 
 @export var x: float = 0:
 	set(new):
@@ -30,7 +30,7 @@ const materials = {
 		z = new
 		position.z = new
 
-var sums: Vector3i
+var sums: Vector3i = Vector3i(9, 9, 9)
 
 
 # class constructor
@@ -40,8 +40,8 @@ func set_attributes(xyz: Vector3, set_filled: bool, set_sums: Vector3i):
 	y = xyz.y
 	z = xyz.z
 	sums = set_sums
+	$dice_digits.set_sums(set_sums)
 	filled = set_filled
-	
 
 
 # Called when the node enters the scene tree for the first time.

@@ -10,3 +10,4 @@ script = ExtResource("1_3fyoi")
 
 [node name="Camera3D" type="Camera3D" parent="camera_vertical_pivot"]
 environment = ExtResource("2_7ns57")
+fov = 30.0

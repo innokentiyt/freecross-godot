@@ -56,6 +56,7 @@ func _init(dict: Dictionary):
 			brush_position.y += 1.0
 		brush_position.y = initial_brush_position.y
 		brush_position.z += 1.0
+	print("shape initialized")
 
 func y_mirror_3d_array(array) -> Array:
 	var result_array = []

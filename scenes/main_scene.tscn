@@ -12,7 +12,7 @@ script = ExtResource("1_4cqrf")
 
 [node name="camera" parent="." instance=ExtResource("3_ji672")]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
-distance = 8.93644
+distance = 17.0605
 observing_shape_size = Vector3i(5, 5, 4)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

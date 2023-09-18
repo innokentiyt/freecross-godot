@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxl1gg7jnmqr6"]
+
+[ext_resource type="Script" path="res://scenes/dice_digits/dice_digits.gd" id="1_pg4p2"]
+[ext_resource type="Script" path="res://scenes/dice_digits/face_pair.gd" id="2_2gbue"]
+[ext_resource type="Texture2D" uid="uid://d2gxyonnidi84" path="res://textures/digits.png" id="2_inlbd"]
+
+[node name="dice_digits" type="Node3D"]
+script = ExtResource("1_pg4p2")
+texture = ExtResource("2_inlbd")
+
+[node name="x_faces" type="Node3D" parent="."]
+script = ExtResource("2_2gbue")
+
+[node name="x1_face" type="Sprite3D" parent="x_faces"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0, 0)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
+
+[node name="x2_face" type="Sprite3D" parent="x_faces"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
+
+[node name="z_faces" type="Node3D" parent="."]
+script = ExtResource("2_2gbue")
+
+[node name="z1_face" type="Sprite3D" parent="z_faces"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.5)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
+
+[node name="z2_face" type="Sprite3D" parent="z_faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
+
+[node name="y_faces" type="Node3D" parent="."]
+script = ExtResource("2_2gbue")
+
+[node name="y1_face" type="Sprite3D" parent="y_faces"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 0)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
+
+[node name="y2_face" type="Sprite3D" parent="y_faces"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+cast_shadow = 0
+pixel_size = 0.0625
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_inlbd")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
