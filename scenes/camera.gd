@@ -5,7 +5,7 @@ extends Node3D
 const HALF_PI := PI/2
 const mouse_h_sensitivity := 0.0035
 const mouse_v_sensitivity := 0.004
-const distance_multiplier = 1.1
+const distance_multiplier = 2.1
 
 var horizontal_input := 0.0
 var vertical_input := 0.0

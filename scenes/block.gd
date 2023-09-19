@@ -4,16 +4,17 @@ extends CSGBox3D
 
 const materials = {
 	"TW": preload("res://materials/transparent_white.tres"),
-	"DG": preload("res://materials/dark_greenish.tres")
+	"DG": preload("res://materials/dark_greenish.tres"),
+	"FT": preload("res://materials/full_transparent.tres")
 }
 
 @export var filled: bool = false:
 	set(new):
 		filled = new
 		if new:
-			material = materials["DG"]
+			material = materials["FT"]
 		else:
-			material = materials["TW"]
+			material = materials["FT"]
 
 @export var x: float = 0:
 	set(new):
@@ -30,7 +31,7 @@ const materials = {
 		z = new
 		position.z = new
 
-var sums: Vector3i
+var sums: Vector3i = Vector3i(9, 9, 9)
 
 
 # class constructor
@@ -40,8 +41,8 @@ func set_attributes(xyz: Vector3, set_filled: bool, set_sums: Vector3i):
 	y = xyz.y
 	z = xyz.z
 	sums = set_sums
+	$dice_digits.set_sums(set_sums)
 	filled = set_filled
-	
 
 
 # Called when the node enters the scene tree for the first time.
