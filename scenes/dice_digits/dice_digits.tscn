@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxl1gg7jnmqr6"]
+[gd_scene load_steps=5 format=3 uid="uid://cxl1gg7jnmqr6"]
 
 [ext_resource type="Script" path="res://scenes/dice_digits/dice_digits.gd" id="1_pg4p2"]
 [ext_resource type="Script" path="res://scenes/dice_digits/face_pair.gd" id="2_2gbue"]
 [ext_resource type="Texture2D" uid="uid://d2gxyonnidi84" path="res://textures/digits.png" id="2_inlbd"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dcdic"]
+viewport_path = NodePath("digits_viewport")
 
 [node name="dice_digits" type="Node3D"]
 script = ExtResource("1_pg4p2")
@@ -13,23 +16,23 @@ script = ExtResource("2_2gbue")
 
 [node name="x1_face" type="Sprite3D" parent="x_faces"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0, 0)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
 
 [node name="x2_face" type="Sprite3D" parent="x_faces"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
 
@@ -38,23 +41,23 @@ script = ExtResource("2_2gbue")
 
 [node name="z1_face" type="Sprite3D" parent="z_faces"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.5)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
 
 [node name="z2_face" type="Sprite3D" parent="z_faces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
 
@@ -63,22 +66,41 @@ script = ExtResource("2_2gbue")
 
 [node name="y1_face" type="Sprite3D" parent="y_faces"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 0)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
 
 [node name="y2_face" type="Sprite3D" parent="y_faces"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
-cast_shadow = 0
 pixel_size = 0.0625
+transparent = false
 shaded = true
 double_sided = false
 texture_filter = 0
-texture = ExtResource("2_inlbd")
+texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
+
+[node name="digits_viewport" type="SubViewport" parent="."]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(160, 16)
+
+[node name="ColorRect" type="ColorRect" parent="digits_viewport"]
+texture_filter = 1
+clip_contents = true
+offset_right = 160.0
+offset_bottom = 16.0
+color = Color(0, 0.501961, 0.454902, 1)
+
+[node name="TextureRect" type="TextureRect" parent="digits_viewport/ColorRect"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("2_inlbd")
+stretch_mode = 2

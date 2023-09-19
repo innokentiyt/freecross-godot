@@ -29,10 +29,6 @@ func set_sums(new_sums: Vector3i):
 	$y_faces.crop_region = crop_region_y
 	$z_faces.crop_region = crop_region_z
 	
-	$x_faces.texture = texture
-	$y_faces.texture = texture
-	$z_faces.texture = texture
-	
 	$x_faces.pixel_size = pixel_size
 	$y_faces.pixel_size = pixel_size
 	$z_faces.pixel_size = pixel_size

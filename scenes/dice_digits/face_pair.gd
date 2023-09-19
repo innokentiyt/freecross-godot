@@ -10,13 +10,6 @@ var crop_region: Rect2:
 			child.region_enabled = true
 			child.region_rect = new
 
-var texture: Texture2D:
-	set(new):
-		texture = new
-		var children = get_children().filter(func(child): return child is Sprite3D)
-		for child in children:
-			child.texture = new
-
 var pixel_size: float:
 	set(new):
 		pixel_size = new

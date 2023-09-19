@@ -4,16 +4,17 @@ extends CSGBox3D
 
 const materials = {
 	"TW": preload("res://materials/transparent_white.tres"),
-	"DG": preload("res://materials/dark_greenish.tres")
+	"DG": preload("res://materials/dark_greenish.tres"),
+	"FT": preload("res://materials/full_transparent.tres")
 }
 
 @export var filled: bool = false:
 	set(new):
 		filled = new
 		if new:
-			material = materials["DG"]
+			material = materials["FT"]
 		else:
-			material = materials["DG"]
+			material = materials["FT"]
 
 @export var x: float = 0:
 	set(new):
