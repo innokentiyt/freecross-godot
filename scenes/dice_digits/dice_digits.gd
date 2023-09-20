@@ -2,8 +2,14 @@
 class_name DiceDigits
 extends Node3D
 
+const colors = {
+	true: Color("008074"),
+	false : Color.WHITE
+}
+
 @export var texture: Texture2D
-var sums := Vector3i(9, 9, 9)
+var sums := Vector3i(1, 2, 3)
+@export var filled := false
 
 var crop_region_x = get_crop_region(sums.x)
 var crop_region_y = get_crop_region(sums.y)
@@ -17,14 +23,20 @@ var crop_region_z = get_crop_region(sums.z)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_sums(sums)
+	set_props(sums, filled)
 
 
-func set_sums(new_sums: Vector3i):
+func set_props(new_sums: Vector3i, new_filled: bool):
 	sums = new_sums
+	filled = new_filled
+	
+	var colorRect = get_node("digits_viewport/ColorRect") as ColorRect
+	colorRect.color = colors[false]
+	
 	crop_region_x = get_crop_region(new_sums.x)
 	crop_region_y = get_crop_region(new_sums.y)
 	crop_region_z = get_crop_region(new_sums.z)
+	
 	$x_faces.crop_region = crop_region_x
 	$y_faces.crop_region = crop_region_y
 	$z_faces.crop_region = crop_region_z
@@ -33,6 +45,10 @@ func set_sums(new_sums: Vector3i):
 	$y_faces.pixel_size = pixel_size
 	$z_faces.pixel_size = pixel_size
 	
+
+func set_colored(new_colored: bool):
+	var colorRect = get_node("digits_viewport/ColorRect") as ColorRect
+	colorRect.color = colors[filled]
 
 
 func get_crop_region(digit: int) -> Rect2i:
