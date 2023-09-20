@@ -1,6 +1,6 @@
 extends Label
 
-var visibility_seconds := 4.0
+var visibility_seconds := 6.0
 var fade_out_seconds := 1.5
 var remove_after_seconds := visibility_seconds + fade_out_seconds
 var timer := 0.0

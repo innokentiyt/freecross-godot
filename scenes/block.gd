@@ -41,7 +41,7 @@ func set_attributes(xyz: Vector3, set_filled: bool, set_sums: Vector3i):
 	y = xyz.y
 	z = xyz.z
 	sums = set_sums
-	$dice_digits.set_sums(set_sums)
+	$dice_digits.set_props(set_sums, set_filled)
 	filled = set_filled
 
 
@@ -57,7 +57,13 @@ func _process(_delta):
 
 func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton:
-		if Input.is_action_pressed("left_mouse_button"):
+		if Input.is_action_pressed("destroy_block"):
 			if not filled:
 				get_parent().empty_blocks_count -= 1
 				self.queue_free()
+		if Input.is_action_pressed("color_block"):
+			if filled:
+				print("filled!")
+				get_node("dice_digits").set_colored(true)
+			else:
+				print("not filled!")

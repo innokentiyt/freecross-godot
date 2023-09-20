@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxl1gg7jnmqr6"]
+[gd_scene load_steps=6 format=3 uid="uid://cxl1gg7jnmqr6"]
 
 [ext_resource type="Script" path="res://scenes/dice_digits/dice_digits.gd" id="1_pg4p2"]
 [ext_resource type="Script" path="res://scenes/dice_digits/face_pair.gd" id="2_2gbue"]
 [ext_resource type="Texture2D" uid="uid://d2gxyonnidi84" path="res://textures/digits.png" id="2_inlbd"]
+[ext_resource type="Material" uid="uid://p7j3qqmxstw0" path="res://materials/white.tres" id="4_oh0q1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dcdic"]
 viewport_path = NodePath("digits_viewport")
@@ -10,6 +11,7 @@ viewport_path = NodePath("digits_viewport")
 [node name="dice_digits" type="Node3D"]
 script = ExtResource("1_pg4p2")
 texture = ExtResource("2_inlbd")
+filled = true
 
 [node name="x_faces" type="Node3D" parent="."]
 script = ExtResource("2_2gbue")
@@ -23,7 +25,7 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(16, 0, 16, 16)
 
 [node name="x2_face" type="Sprite3D" parent="x_faces"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0)
@@ -34,7 +36,7 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(16, 0, 16, 16)
 
 [node name="z_faces" type="Node3D" parent="."]
 script = ExtResource("2_2gbue")
@@ -48,7 +50,7 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(48, 0, 16, 16)
 
 [node name="z2_face" type="Sprite3D" parent="z_faces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
@@ -59,7 +61,7 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(48, 0, 16, 16)
 
 [node name="y_faces" type="Node3D" parent="."]
 script = ExtResource("2_2gbue")
@@ -73,7 +75,7 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(32, 0, 16, 16)
 
 [node name="y2_face" type="Sprite3D" parent="y_faces"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
@@ -84,15 +86,18 @@ double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_dcdic")
 region_enabled = true
-region_rect = Rect2(144, 0, 16, 16)
+region_rect = Rect2(32, 0, 16, 16)
 
 [node name="digits_viewport" type="SubViewport" parent="."]
+disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
+gui_disable_input = true
 size = Vector2i(160, 16)
 
 [node name="ColorRect" type="ColorRect" parent="digits_viewport"]
 texture_filter = 1
+material = ExtResource("4_oh0q1")
 clip_contents = true
 offset_right = 160.0
 offset_bottom = 16.0
